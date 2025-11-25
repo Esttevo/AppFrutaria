@@ -5,43 +5,61 @@ import br.com.frutaria.model.Fruta;
 import java.util.Scanner;
 
 public class Atendente {
-    private Scanner input;
+    private Scanner sc;
 
     public Atendente() {
-        input = new Scanner(System.in);
+        sc = new Scanner(System.in);
     }
 
     public int menuPrincipal() {
-        System.out.println("1 - Cadastrar fruta");
+    	 int opcao = -1;
+    	try {
+    	System.out.println("1 - Cadastrar fruta");
         System.out.println("2 - Listar frutas");
         System.out.println("3 - Remover fruta");
+        System.out.println("4 - Listar Total de tipos de frutas");
         System.out.println("0 - Sair");
-        int opcao = input.nextInt();
-        input.nextLine(); // Limpa a quebra de linha
-        return opcao;
+        opcao = sc.nextInt();
+        sc.nextLine(); // Limpa a quebra de linha
+        
+        
+        if (opcao < 0 || opcao > 4) {
+        	throw new IllegalArgumentException();
+        }
+        } catch (IllegalArgumentException e ) {
+        	System.out.println("ASD");
+        	sc.nextLine();
+        } catch (RuntimeException e) {
+        System.out.println();
+        sc.nextLine();
+        } 
+    	 return opcao;
     }
 
     public String frutaNome() {
         System.out.println("Digite o nome da fruta:");
-        return input.nextLine();
+        return sc.nextLine();
     }
 
     public double frutaPreco() {
         System.out.println("Digite o preço da fruta:");
-        return input.nextDouble();
+        return sc.nextDouble();
     }
 
     public int frutaQuantidade() {
         System.out.println("Digite a quantidade:");
-        return input.nextInt();
+        return sc.nextInt();
     }
 
     public String frutaTipo() {
-        input.nextLine(); // Limpa a quebra de linha
+        sc.nextLine(); // Limpa a quebra de linha
         System.out.println("Digite o tipo da fruta:");
-        return input.nextLine();
+        return sc.nextLine();
     }
 
+    public void visualizarQuantFrutas() {
+    	Fruta.gettotalQuantTiposFruta();
+    }
     public void visualizar(Fruta fruta) {
         System.out.println("---");
         System.out.println("Nome: " + fruta.getNome());
@@ -52,7 +70,7 @@ public class Atendente {
 
     public String removerFruta() {
         System.out.println("Digite o nome da fruta a remover:");
-        return input.nextLine();
+        return sc.nextLine();
     }
 
     public void visualizarFrutaRemovida(String nome) {

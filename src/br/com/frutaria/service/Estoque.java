@@ -15,7 +15,7 @@ public class Estoque {
 
     public void gerenciarEstoque(int opcao, Atendente atendente) {
         switch (opcao) {
-            case 1: {
+            case 1-> {
                 String nome = atendente.frutaNome();
                 double preco = atendente.frutaPreco();
                 int quantidade = atendente.frutaQuantidade();
@@ -26,7 +26,7 @@ public class Estoque {
                 break;
             }
 
-            case 2: {
+            case 2-> {
                 if (listaFruta.isEmpty()) {
                     System.out.println("Não há frutas cadastradas.");
                 } else {
@@ -37,7 +37,7 @@ public class Estoque {
                 break;
             }
 
-            case 3: {
+            case 3-> {
                 String nome = atendente.removerFruta();
                 boolean removido = false;
 
@@ -54,15 +54,18 @@ public class Estoque {
                 } else {
                     atendente.mensagemNaoEncontrado();
                 }
-                break;
+             
             }
-
-            case 0:
+            case 4-> {
+            	atendente.visualizarQuantFrutas();
+            }
+            case 0-> {
                 // A opção de saída já é tratada no método `finalizarApp` em Atendente
-                break;
-
-            default:
+                
+            }
+            default ->{
                 System.out.println("Opção inválida.");
-        }
+            }
+           }
     }
 }
