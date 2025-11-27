@@ -58,7 +58,7 @@ public class Atendente {
     }
 
     public void visualizarQuantFrutas() {
-    	Fruta.gettotalQuantTiposFruta();
+    	System.out.println(Fruta.gettotalQuantTiposFruta());
     }
     public void visualizar(Fruta fruta) {
         System.out.println("---");

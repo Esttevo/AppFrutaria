@@ -1,14 +1,15 @@
 package br.com.frutaria.model;
 
-public class Fruta {
+public class Verdura {
+
 	private String nome;
 	private double preco;
 	private int quantidade;
 	private String tipo;
-	private static int contador;
 	private final int codigo;
+	private static int contador;
 
-	public Fruta() {
+	public Verdura() {
 		this.nome = "";
 		this.preco = 0.0;
 		this.quantidade = 0;
@@ -16,7 +17,7 @@ public class Fruta {
 		this.codigo = contador++;
 	}
 
-	public Fruta(String nome, double preco, int quantidade, String tipo) {
+	public Verdura(String nome, double preco, int quantidade, String tipo) {
 		this.nome = nome;
 		this.preco = preco;
 		this.quantidade = quantidade;
@@ -24,7 +25,6 @@ public class Fruta {
 		this.codigo = contador++;
 	}
 
-	// Getters e Setters
 	public String getNome() {
 		return nome;
 	}
